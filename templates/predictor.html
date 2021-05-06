@@ -10,7 +10,6 @@
 
 									<!-- Content -->
 										<h2 id="content">Please read the instructions carefully-</h2>
-                                        <h4>Ordered</h4>
                                             <ol>
                                                 <li>Ensure that the image being uploaded is that of a proper and authentic chest X-ray scan.</li>
                                                 <li>Please check that the uploaded image is in either JPG, JPEG or PNG formt.</li>
@@ -26,38 +25,18 @@
 										<div class="row gtr-200">
 											<div class="col-6 col-12-medium">
 
-													<div class="row">
-														<div class="col-6 col-12-small">
-
-
-														</div>
-														<div class="col-6 col-12-small">
-
-
-														</div>
-													</div>
-													<div class="row">
-														<div class="col-6 col-12-small">
-														</div>
-														<div class="col-6 col-12-small">
-														</div>
-														<div class="col-6 col-12-small">
-														</div>
-														<div class="col-6 col-12-small">
-														</div>
-													</div>
 
 											<div class="col-6 col-12-medium">
 
 
 												<!-- Form -->
-                                                    <h3>Form</h3>
+                                                    <h3>Upload Form</h3>
 
-                                                    <form method="post" action="#">
+                                                    <form method="post" enctype="multipart/form-data">
 														<div class="row gtr-uniform">
 															<div class="col-6 col-12-xsmall">
-                                                                <label for="file_upload">Select the file:</label>
-                                                                <input type="file" id="myfile" name="file_upload">
+                                                                <label for="file">Select the file:</label>
+                                                                <input type="file" id="myfile" name="file">
 															</div>
 															<div class="col-12">
                                                                 <ul class="actions">
@@ -67,6 +46,12 @@
 															</div>
 														</div>
 													</form>
+
+                                                    {% if pred == 0 %}
+                                                    <p>The model predicts presence of covid in the uploaded chest x-ray image. Please consult or check with the nearest available medical centre.</p>
+                                                    {% elif pred == 1 %}
+                                                    <p>Congratulations, the model does not detect any presence of covid in the uploaded chest x-ray image. But, if there persists signs or symptoms of covid-19, please isolate yourself and consult with the nearest medical institution.</p>
+                                                    {% endif %}
 
 
 											</div>

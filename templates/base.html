@@ -20,6 +20,9 @@
                                     <a href="{{ url_for('index') }}" class="logo"><strong>Scanzy</strong></a> 
 								</header>
                                 {% block content1 %}{% endblock %}
+                                {% for message in get_flashed_messages() %}
+                                <div class="flash">{{ message }}</div>
+                                {% endfor %}
  
 				<!-- Sidebar -->
 					<div id="sidebar">
