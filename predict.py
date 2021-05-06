@@ -17,6 +17,6 @@ def predict(image, model_path):
 
     result = classifier.predict(img)
 
-    return result # '0' if normal, '1' if Covid
+    return result # '1' if normal, '0' if Covid
 
 
