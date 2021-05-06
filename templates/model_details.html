@@ -1,51 +1,32 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>Scanzy</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
-	</head>
-	<body class="is-preload">
+{% extends 'base.html' %}
 
-		<!-- Wrapper -->
-			<div id="wrapper">
-
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
-
-							<!-- Header -->
-								<header id="header">
-                                    <a href="{{ url_for('index') }}index.html" class="logo"><strong>Scanzy</strong></a>
-								</header>
-
-							<!-- Content -->
+{% block content1 %}
+							<!-- content -->
 								<section>
 									<header class="main">
-										<h1>How the Predictor works</h1>
+										<h1>How the predictor works</h1>
 									</header>
 
                                     <span class="image main"><img src="{{ url_for('static', filename='images/chest.png') }}" alt="" /></span>
 
-                                    <p>The goal of this project is to detect COVID-19 pneumonia patients automatically using digital chest X-ray images, while optimizing the detection accuracy by using a well-trained neural network model.</p>
+                                    <p>The goal of this project is to detect covid-19 pneumonia patients automatically using digital chest x-ray images, while optimizing the detection accuracy by using a well-trained neural network model.</p>
 
 									<hr class="major" />
 
 									<h2>Dataset used for training purposes-</h2>
                                     <p>In most of the previous research and work done in this particular field, the main problem was that the data or dataset collected and used were either not adequete enough, or required further information and insights.</p>
                                     <p>To mitigate this problem and to get better and more accurate results, we were careful to collect proper covid-19 positive sample images from this open-sourced data mentioned <a href="https://github.com/ieee8023/covid-chestxray-dataset" target="_blank">here</a>.</p>
-                                    <p>This data was collected by <a href="https://josephpcohen.com/w/" target="_blank">Joseph Paul Cohen</a>, who is the director of the Institute for Reproducible Research, a US non-profit which operates ShortScience.org and Academic Torrents. He is also a researcher and a pragmatic engineer.</p>
-                                    <p>The negative examples (bacterial and viral pneumonia not caused by covid infections) were collected from the publicly available and verified <a href="https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia" target="_blank">dataset</a> from Kaggle.</p>
+                                    <p>This data was collected by <a href="https://josephpcohen.com/w/" target="_blank">joseph paul cohen</a>, who is the director of the institute for reproducible research, a us non-profit which operates shortscience.org and academic torrents. he is also a researcher and a pragmatic engineer.</p>
+                                    <p>The negative examples (bacterial and viral pneumonia not caused by covid infections) were collected from the publicly available and verified <a href="https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia" target="_blank">dataset</a> from kaggle.</p>
 
 									<hr class="major" />
 
 									<h2>Details about the model-</h2>
-                                    <p>Before feeding to the neural network, the training data is augmented to create even more training sample by shearing the image (think of it like stretching the image horizontally), using only some parts of the image by zooming it to certain regions, and horizontal flipping. The test data do not undergo these changes.<br> Both the training and test data are rescaled by normalizing the pixel data, and fitted to a shape of dimensions 224x224x3.</p>
+                                    <p>Before feeding to the neural network, the training data is augmented to create even more training sample by shearing the image (think of it like stretching the image horizontally), using only some parts of the image by zooming it to certain regions, and horizontal flipping. the test data do not undergo these changes.<br> both the training and test data are rescaled by normalizing the pixel data, and fitted to a shape of dimensions 224x224x3.</p>
                                     <span class="image main"><img src="{{ url_for('static', filename='images/cnn_block.png') }}" alt="" /></span>
-                                    <p>A convolutional neural network (henceforth referred to as CNN) architecture is used for designing the deep-learning model. The model has 3 blocks of layers, and each block has a convolution layer followed by a pooling and a drop-out layer. This is then followed by a <i>flatten</i> and then a <i>dense</i> which later outputs a binary value- '1' or '0' as to whether it detects presence of covid in a given sample or not. The model uses <i>binary cross-entropy</i> for calculating loss, and uses the <i>Adam optimizer</i>.</p>
+                                    <p>A convolutional neural network (henceforth referred to as cnn) architecture is used for designing the deep-learning model. the model has 3 blocks of layers, and each block has a convolution layer followed by a pooling and a drop-out layer. this is then followed by a <i>flatten</i> and then a <i>dense</i> which later outputs a binary value- '1' or '0' as to whether it detects presence of covid in a given sample or not. the model uses <i>binary cross-entropy</i> for calculating loss, and uses the <i>adam optimizer</i>.</p>
 
-                                    <p>Click <a href="https://github.com/ShravanCool/Scanzy/blob/master/Scanzy_baseline.ipynb" target="_blank">here</a> to learn more.</p>
+                                    <p>Click <a href="https://github.com/shravancool/scanzy/blob/master/scanzy_baseline.ipynb" target="_blank">here</a> to learn more.</p>
 
 
 								</section>
@@ -53,36 +34,4 @@
 						</div>
 					</div>
 
-				<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner">
-
-
-							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>Menu</h2>
-									</header>
-									<ul>
-                                        <li><a href="{{ url_for('index') }}">Homepage</a></li>
-                                        <li><a href="{{ url_for('model_details') }}">How the model works</a></li>
-                                        <li><a href="{{ url_for('predictor') }}">Go to Predictor</a></li>
-                                        <li><a href="{{ url_for('bulletin') }}">Other Important resources</a></li>
-									</ul>
-								</nav>
-
-
-						</div>
-					</div>
-
-			</div>
-
-		<!-- Scripts -->
-            <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
-            <script src="{{ url_for('static', filename='js/browser.min.js') }}"></script>
-            <script src="{{ url_for('static', filename='js/breakpoints.min.js') }}"></script>
-            <script src="{{ url_for('static', filename='js/util.js') }}"></script>
-            <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-
-	</body>
-</html>
+{% endblock %}

@@ -1,24 +1,6 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>Scanzy</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
-	</head>
-	<body class="is-preload">
+{% extends 'base.html' %}
 
-		<!-- Wrapper -->
-			<div id="wrapper">
-
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
-
-							<!-- Header -->
-								<header id="header">
-                                    <a href="{{ url_for('index') }}" class="logo"><strong>Scanzy</strong></a>
-								</header>
+{% block content1 %}
 
 							<!-- Content -->
 								<section>
@@ -95,34 +77,4 @@
 						</div>
 					</div>
 
-				<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner">
-
-							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>Menu</h2>
-									</header>
-									<ul>
-                                        <li><a href="{{ url_for('index') }}">Homepage</a></li>
-                                        <li><a href="{{ url_for('model_details') }}">How the model Works</a></li>
-                                        <li><a href="{{ url_for('predictor') }}">Go to predictor</a></li>
-                                        <li><a href="{{ url_for('bulletin') }}">Other Important resources</a></li>
-									</ul>
-								</nav>
-
-						</div>
-					</div>
-
-			</div>
-
-		<!-- Scripts -->
-            <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
-            <script src="{{ url_for('static', filename='js/browser.min.js') }}"></script>
-            <script src="{{ url_for('static', filename='js/breakpoints.min.js') }}"></script>
-            <script src="{{ url_for('static', filename='js/util.js') }}"></script>
-            <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-
-	</body>
-</html>
+{% endblock %}
